@@ -11,3 +11,5 @@ export const b = ()=>{
 export let obj = {
     name:'세종'
 }
+
+// git test
