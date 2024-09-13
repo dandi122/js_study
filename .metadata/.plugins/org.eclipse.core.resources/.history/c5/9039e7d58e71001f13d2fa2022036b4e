@@ -1,0 +1,28 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.dto.SalesGroupBy;
+import com.example.demo.repository.SalesRepository;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@SpringBootTest
+class Backend1ApplicationTests {
+	
+	//di
+	@Autowired
+	private SalesRepository salesRepository;
+
+	@Test
+	void contextLoads() {
+		List<SalesGroupBy> sales = salesRepository.findSalesGoupByData();
+		log.info("데이터 총개수" + sales.size());
+	}
+
+}

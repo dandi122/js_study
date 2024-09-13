@@ -30,6 +30,11 @@ dependencies {
   	compileOnly 'org.projectlombok:lombok'
   	// 롬북 : 컴파일 단계에서 애너테이션을 분석하고 처리하기 위해 사용
   	annotationProcessor 'org.projectlombok:lombok'
+  	
+  	// swagger, springdoc
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 }
 
 tasks.named('test') {

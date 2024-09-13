@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SalesGroupBy.java&apos; to &apos;com.example.demo.dto.SalesGroupBy.java&apos;&#x0D;&#x0A;- Original project: &apos;backend_1&apos;&#x0D;&#x0A;- Destination element: &apos;com.example.demo.dto.SalesGroupBy.java&apos;&#x0D;&#x0A;- Original element: &apos;com.example.demo.dto.SalesGroupBy.java&apos;" description="Copy compilation unit" destination="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.example.demo.dto{SalesGroupBy.java" element1="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.example.demo.dto{SalesGroupBy.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1726204106527" units="1" version="1.0"/>
+</session>
