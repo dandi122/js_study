@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <h2>제목</h2>
+            <h2 id="myTitle">제목</h2>
+            <h2 class="myStyle">클레스 적용</h2>
+            <div>A</div>
+            <div class="myStyle">B</div>
+            <div>
+                <ul>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>
+                        <ol>
+                            <li>자바</li>
+                            <li>스프링부트</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>NO</td>
+                            <td>이름</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>자바</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>오라클</td>    
+                        </tr>
+                        <tr><
+                            <td>3</td>
+                            <td>스프링부트</td>    
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>자바스크립트</td>    
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>리액트</td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <input type="text" name="uid"/>
+            </div>
+
+        </div>
+        <script>
+            // css selector : css에서 요소(엘리먼트)를 특정하는 방법(표현방법)
+            // 방법1 : 툴을 통해서 획득(표현식)하는 방법, 군더더기가 많을 수 있다, 일반적이지 않을 수 있다.
+            // 방법2 : 규칙을 이해하고 직접 구성하는 방법
+            // *        : 모든 요소, 특별한 경우 외에는 사용x
+                // 이 문서상에 존재하는 모든 요소
+                $('*').css('color','red');
+            // 아이디 : 문서상에 고유한 값(암묵적 룰)
+                //표현식 #+아이디값
+                $('#myTitle').css("color", "green"); //글자색 변경
+                $('#myTitle').html(`<p>내용변경</p>`); // 요소의 자식을 통째로 변경
+            // 클레스 : 여러개의 요소에 동일한 스타일 묶음(글자는 빨강색, 크기는 2px... 등등)을 적용하는 단위
+                // 표현식 = . + class값
+                $('.myStyle').css('backgroundColor', "yellow")
+            // 요소명 : 요소명을 지정
+                // 이 문서상에 존재하는 모든 div를 찾아서(특정해서)
+                $('div').css("color", "black");
+            // 조합 : 여러가지 표현식을 결합하여 특정
+                // 이 문서상에 존재하는 모든 div들 중에 class값이 myStyle인 요소를 특정해서
+                $('div.myStyle').css("color", "blue");
+            // 열거 : 이요소, 저요소, 등등 나열해서 하나의 그룹을 표현
+                // css selector, css selector, css selector ,로 나열하면됨
+                $('.myStyle, div').css("color", "pink");
+            // 서열 : 부모 자식간의 관계를 기반으로 특정할 때 사용
+                // 직계자식관계 : 부모요소 > 자식요소 
+                $('ul > li').css("color", "gray");
+                // 후손관계 : 부모요소 자식요소
+                $('ul li').css("color", "magenta");
+            // 의사결정셀렉터
+                // css selector:표현
+                // 표현 : first, last, nth-child(n), eq(n), gt(n), lt(n), even, odd
+                $('tbody > tr:even').css("backgroundColor", "lightGray");
+                $('tbody > tr:first > td').css("color", "blue");
+                $('tbody > tr:lt(3)').css("backgroundColor", "green");  // 상위 3개
+                $('tbody > tr:nth-child(4)').css("backgroundColor", "pink");  // 4번째 요소
+            // 속성셀렉터
+                // input 태그에서 주로 사용
+                // 표현 : [속성명=속성값]
+                $('[name=uid]').css("backgroundColor", "lightgreen");
+        </script>
+    </body>
+</html>
