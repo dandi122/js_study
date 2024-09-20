@@ -35,6 +35,11 @@ dependencies {
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 	
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+	
+	//TODO IO-STEP1 #003 
+	//socket.io의 자바 지원 모듈
+	//https://github.com/mrniko/netty-socketio
+	implementation 'com.corundumstudio.socketio:netty-socketio:2.0.11'
 }
 
 tasks.named('test') {

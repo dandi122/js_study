@@ -1,0 +1,9 @@
+package com.example.demo.socketio;
+/**
+ *  클라이이ㅓㄴ트 서버간 소켓 통신을 위한 모든 작업
+ *  -클라이언트가 보낸 메세지 => 이벤트 등록하여 처리
+ *  -클라이언트에게 보낼 메세지 구성
+ */
+public class SocketIOEventHandler {
+
+}
