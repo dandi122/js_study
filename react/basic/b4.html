@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jsx에 스타일(css) 적용</title>
+    <style>
+      p {
+        color:blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      function makeJSX() {
+        const style1 = {
+          'color':'blue',
+          //background-color x, backgroundColor ok , 카멜표기법으로 사용
+          'backgroundColor':'#d1d1d1',
+          'fontSize':'3em'
+        };
+        const style2 = {
+          'color':'red',
+          'backgroundColor':'#fffff00',
+          'fontSize':'1em'
+        }
+        return (
+          <>
+            <p style={style1}>스타일적용 1</p>
+            <p style={style2}>스타일적용 2</p>
+            {/* jsx내부에서 사용하는 주석, 스타일을 직접 적용시 {} 2개 사용 */}
+            <p style={{'fontSize':'2em', 'color':'red'}}>스타일적용 3</p>
+            {/* html에 적용된 전체 스타일 */}
+            <p>스타일4</p>
+          </>
+        );
+      }
+      const root = ReactDOM.createRoot(document.querySelector('#root'));
+      root.render(makeJSX());
+
+
+    </script>
+  </body>
+</html>

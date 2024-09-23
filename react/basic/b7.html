@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyImage 컴포넌트 구성</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      // MyImg 컴포턴트는 속성 2개(src="네트워크이미지url", label=:"이미지제목/설명")를 가진 컴포넌트 만드시오
+      let html = (
+        <div>
+          <MyImg src="https://i.namu.wiki/i/ys1S_nXPwUWOziBzqynskzIeIVHel8_k0yCwuwWUuMblP9d0F73A8D2NHBeppxY7fgn0VaOAx6R-loOH36aLSbTdbpxCvV_SB2ozD5hutWtBWge-KgHXGwPHW4k9ZsjzfxRbY4nd1o2D7w-1EJfhmA.webp" label="도라에몽"/>
+        </div>
+      );
+      // 실습 MyImg 생성, 함수형 구성, 5분
+      
+      function MyImg(props) {
+        const {src, label} = props; 
+        return (  
+          <>
+            <img src={src} width="100"/>
+            <p>{label}</p>
+          </>
+        );
+      };
+      
+      const root = ReactDOM.createRoot(
+        document.querySelector('#root'));
+      
+      root.render(html);
+
+
+    </script>
+  </body>
+</html>

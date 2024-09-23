@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>클레스형 컴포넌트 응용</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      // MyList를 클레스형 컴포넌트로 구성
+      // 보여지는 형태
+      /*
+        <div>
+          <h3>언어리스트</h3>
+          <ui>
+            <li>자바</li>
+            <li>자바스크립트</li>
+          </ui>
+        </div>
+      */
+      // 실습 : 위처럼 결과가 보이게 클레스형 컴포넌트를 구성하시오
+      
+      class MyList extends React.Component {
+        render() {
+          let {title, items} = this.props;
+          console.log(items.split(','));   //문자열의 구분자를 기준으로 문자열을 분해 => 결과는 배열
+          // 문자열 => 분해 => 배열 => 가공 => <li>자바</li><li>자바스크립트</li>
+          // 반복적인 작업으로 jsx가 생성되면, key 속성을 반드시 공유한 값으로 세팅해야 한다
+          const my_jsx = items.split(',').map( (item, idx) => {
+            // JSX 리턴
+            // 고유한 값으로 배열 데이터의 인덱스 값을 사용
+            return <li key={idx}>{item}</li>
+          });
+          const my_jsx2 = items.split(',').map( (item, idx) =><li key={idx}>{item}</li>);
+          console.log(my_jsx);
+          // JSX 리턴
+          return(
+            <>
+              <h3>{title}</h3>
+              <ui>
+                {my_jsx2}
+              </ui>
+            </>
+          );
+        };
+      };
+
+      let html = (
+        <div>
+          <MyList title="언어목록" items="자바,자바스크립트,타입스크립트,SQL" />
+        </div>
+      ); 
+
+      const root = ReactDOM.createRoot(document.querySelector('#root'));
+      
+      root.render(html);
+
+
+    </script>
+  </body>
+</html>

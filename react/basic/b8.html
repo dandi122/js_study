@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>클레스형 컴포넌트 구성(react 16 이전 까지는 주력 형태</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      
+      // 클래스형 컴포넌트 구성, 먼저 정의 후 사용!!!
+      class MyImg extends React.Component{
+        // 필수구현
+        render(){
+          let {src, label} = this.props; // props는 클레스형 컴포넌트의 멤버변수임
+          // jsx 리턴
+          return(
+            <>
+              <img src={src} width='300'/>
+              <p>{label}</p>
+            </>
+          );
+        }
+      }
+
+      let html = (
+        <div>
+          <MyImg src="https://i.namu.wiki/i/ys1S_nXPwUWOziBzqynskzIeIVHel8_k0yCwuwWUuMblP9d0F73A8D2NHBeppxY7fgn0VaOAx6R-loOH36aLSbTdbpxCvV_SB2ozD5hutWtBWge-KgHXGwPHW4k9ZsjzfxRbY4nd1o2D7w-1EJfhmA.webp" label="도라에몽"/>
+        </div>
+      ); 
+
+      const root = ReactDOM.createRoot(document.querySelector('#root'));
+      root.render(html);
+
+
+    </script>
+  </body>
+</html>

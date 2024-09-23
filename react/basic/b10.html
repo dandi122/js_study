@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>컴포넌트 상태 변수(값)</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      /*
+        - 컴포넌트는 props(속성), state(상태)를 멤버변수로 가진다, 중요 구성원
+        - state라는 공간에 여러 데이터를 관리할 수 있다
+        - 상태변수(값)
+          - 1. 상태값 초기화 -> 통상 컴포넌트 생성자에서 수행
+          - 2. 상태값 사용 -> 원하는 곳이면 어디든 가능, 통상 jsx 내부에서 사용
+          - 3. 상태값 수정 -> 이벤트에 의해서 진행 -> 수정되면 -> render()자동 호출 -> 화면 갱신
+          - 화면갱신 : 이벤트 발생 => 상태값 수정 => render() 자동호출 => 화면갱신(v-dom 작동)
+      */
+      // 실습 1분 : MyState 기본형식의 클래스형 컴포넌트 구성
+      class MyState extends React.Component {
+        constructor(props) {
+          super(props);
+          // 1. 상태값 초기화
+          this.state = {
+            // 상태변수 생성 및 초기화
+            name:'세종',   
+            age:15
+          };
+          // 3. 강제로 1초 후에 이벤트 발생 -> 이벤트 처리 대용으로 타이머 사용
+          setInterval(() => {
+            // 3. 상태값 수정
+            // this.setState({변경대상 변수명 : 변경값})
+            this.setState({age : this.state.age+1 });
+          }, 1*1000);
+        }
+        render() {
+          // this.state.name
+          const {name, age} = this.state;
+          return(
+            <>
+              {/* 2. 상태값 사용 */}
+              <p>{name} / {age}</p>
+            </>
+          );
+        };
+      };
+
+      let html = (
+        <div>
+          <MyState/>
+        </div>
+      ); 
+      const root = ReactDOM.createRoot(document.querySelector('#root'));
+      root.render(html);
+
+
+    </script>
+  </body>
+</html>
