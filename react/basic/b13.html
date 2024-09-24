@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>컴포넌트, 선택적렌더링</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      class MyChoice extends React.Component {
+        constructor(props) {
+          super(props); 
+          this.state = {
+            select:false  // 선택, 비선택
+          }        
+        };
+
+        render() {
+          const { name } = this.props;
+          const selectMark = this.state.select ? "■" : "□"
+          const selectHandler = evt => {
+            // 클릭 이벤트 발생 => 핸들러 호출 => □ -> ■ 변경됨(화면갱신 => 상태변수 변경 => 선택했다?안했다 = 상태변수로 선택여부를 보관
+            this.setState({select:!this.state.select});
+          };
+          return (
+            <div onClick={selectHandler}>
+              {/*실습1분 : 해당 컴포넌트의 name값을 추출하여 출력*/}
+              <p>{selectMark} {name}</p>
+            </div>
+          )
+        }
+
+      }
+      let html = (
+        <div>
+          10월 첫째주 황금연휴에 어디를 갈까?
+          <MyChoice name="삿포로"/>
+          <MyChoice name="하와이"/>
+          <MyChoice name="파리"/>
+          <MyChoice name="제주도"/>
+        </div>
+      ); 
+      const root = ReactDOM.createRoot(document.querySelector('#root'));
+      
+      root.render(html);
+
+
+    </script>
+  </body>
+</html>
