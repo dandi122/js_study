@@ -6,10 +6,10 @@
  */
 // 1. 모듈가져오기
 import React, { Component } from 'react';
-import { 
-    Button,
-    Input 
-} from "@material-tailwind/react";
+import {
+    TextField,   //사용자 입력을 받는 컴포넌트
+    Button       //버튼 컴포넌트
+} from '@mui/material'
 
 // 2. 컴포넌트 구현
 class MyInput extends Component {
@@ -34,6 +34,11 @@ class MyInput extends Component {
         let ori_text = evt.target.value;
         // 2. 입력값중 숫자가 아니면 무시 => 정규식 처리
         //    /[^0-9]/g => 숫자가 아닌 모든 문자
+        // [정규식] : 문자클레스 => 문자1개를 표현
+        // [0-9] : 10진수 숫자를 표현
+        // [^0-9] : 숫자만 빼고 나머지 모든 문자 표현(a-z,A-Z,가-힣,ㄱ-ㅎ,ㅏ-ㅣ.....)
+        // [^ㄱ-ㅎㅏ-ㅣ가-힣] : 한글을 제외한 나머지 모든 문자
+        // 숫자가 아니면 모두 ''로 대체
         const value  = ori_text.replace( /[^0-9]/g, '' ); // 숫자가 아니면 모두 ''로 대체
         // 3. 숫자만 반영 => 입력값을 들고 있는 상태변수를 갱신
         this.setState( { inputValue:value } );
@@ -53,6 +58,8 @@ class MyInput extends Component {
         let { inputValue }   = this.state;
         const onChangeHander = evt => this.onChangeHander(evt)
         const onSubmitHandler= evt => this.onSubmitHandler(evt)
+
+        // JSX 리턴 => 컴포넌트의 모습
         return (
             <div style={{ margin:20 }}> 
                 <form onSubmit={ onSubmitHandler }>
@@ -60,10 +67,13 @@ class MyInput extends Component {
                     <input type="text" onChange={ onChangeHander } value={inputValue} placeholder='숫자만 입력하세요'/>
                     <input type="submit" value="전송"/>
                 </form>
-                {/* <form>
-                    <Input type="text" placeholder='숫자만 입력하세요'/>
-                    <Button>전송</Button>
-                </form>                */}
+                <br/>
+                <form>
+                    {/* 써드파트 라이브러리를 사용해도 개발자가 기능을 입히면 동일하게 작동함 */}
+                    <TextField onChange={ onChangeHander } value={inputValue}
+                         label="정수" variant="outlined" type="text" placeholder='숫자만 입력하세요'/>
+                    <Button variant="contained">전송</Button>
+                </form>               
             </div>
         );
     }

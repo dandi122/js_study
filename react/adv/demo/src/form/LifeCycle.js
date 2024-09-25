@@ -30,7 +30,7 @@ class LifeCycle extends Component {
         );
     };
 
-    // 컴포넌트가 마운트 되기전
+    // 컴포넌트가 마운트 되기전 => 화면에 컴포넌트가 보이기 직전 타이밍때 자동호출
     // UNSAFE_componentWillMount() {}  // 해당 함수는 안전하지 않아서 제거될 예저, 사용X
     componentDidMount() {
         // 화면이 보이기 직전
@@ -49,7 +49,7 @@ class LifeCycle extends Component {
 
     // 컴포넌트가 마운트 해제되기전
     componentWillUnmount() {
-        // 튓정리 코드를 발동시킬때 활용
+        // 튓정리 코드를 발동시킬때 활용, 로그정리, 자원정리, 파일저장, ... 필요하면
         console.log("화면에서 사라질려고 한다")
     }
 };
