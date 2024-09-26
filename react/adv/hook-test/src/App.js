@@ -33,24 +33,28 @@ const App2 = ( props ) => {
  * 필요시 고연산을 수행하는 코드는 최적화(메모이제이션등) 동반해야한다 -> 갱신 속도 유지
  */
 function App ( props ) {
+  console.log('App 컴포넌트 호출');
   // 1. 상태변수 생성 및 초기화, 화면갱신시 영향을 받지 않는다
   //    (다시 코드가 수행되지 않음, 수행되더라고 값은 보전된다)
-  // const [ 변수명, set변수명(카멜표기법) ] = useState( 초기값 );
+  // const [ 변수명, set변수명(카멜표기법) ] = useState( 초기값 or null );
   // set변수명이 필요없으면 미정의 가능
+  // 최초 컴포넌트 생성시에만 작동한다
   const [ cnt, setCnt ] = useState( 0 );
   const [ check, setCheck ] = useState( false ); // 상태변수 + 블린형 => 조건부 랜더링
 
   // useRef내의 값이 변경되더라고, 랜더링 하지 않는다
+  // 최초 컴포넌트 생성시에만 작동한다
   const score = useRef(10);
 
-  // props 접근 
+  // props 접근 => 함수 갱신시 매번 작동
   let { name } = props; // 화면 갱신때마다 원값으로 세팅
   console.log( name );
   // 컴포넌트 속성 => 추출 => 상태변수세팅
   const [ myName, setMyName ] = useState( name ); 
 
-
+  // 화면갱신시 매번 할당 => 최적화 대상 => 화면갱신이 느려짐
   function checkUseRef () {
+    console.log("checkUseRef 호출");
     // useRef값 증가
     score.current += 1;
     console.log( score.current );
@@ -60,6 +64,11 @@ function App ( props ) {
     // 상태변수 수정
     setMyName( myName + " 수정" );
   }
+
+  // 화면갱신 속업 => 반복작업 제거 
+  // => 해결방법 : 메모이제이션(useMemo, useCallback)
+  // useMemo : 값(데이터, jsx)를 캐싱
+  // useCallback : 함수 캐싱 => 화면갱신시 매번 함수 할당 x
 
   return (
     <div className="App">
