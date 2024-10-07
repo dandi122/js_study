@@ -1,7 +1,0 @@
-package com.example.demo.socketio;
-/**
- * 외부 api와 통신하여 결과를 돌려주는 메소드 제공
- */
-public class UtilExternalNet {
-
-}

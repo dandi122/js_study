@@ -1,7 +1,0 @@
-package com.example.demo.socketio;
-/**
- * 소켓io 서버 가동을 위한 실해 클레스
- */
-public class SocketIOServerRunner {
-
-}

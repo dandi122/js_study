@@ -1,7 +1,0 @@
-package com.example.demo.socketio;
-/**
- *  클라이이ㅓㄴ트 서버간 소켓 통신을 위한 모든 작업
- */
-public class SocketIOEventHandler {
-
-}

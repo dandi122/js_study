@@ -1,8 +1,0 @@
-package com.example.demo.socketio;
-/**
- *  소켓io 서버 구성을 위한 환경 설정
- *  -hostname, port 설정
- */
-public class SocketIOConfig {
-
-}
