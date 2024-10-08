@@ -82,5 +82,39 @@
         - Next.js
             - SSR, ...
         - AWS 배포, github, ci/cd
+
+# TypeScript 적용
+    - react 개발 언어를 js|ts로 구성 가능
+        - 자바스크립트기반 : *.js(유틸, 로직 등), *.jsx(jsx 생성반환하는 내용)
+        - 타입스크립트기반 : *.ts(유틸, 로직 등), *.tsx(jsx 생성반환하는 내용)
+            -tsconfig.json 파일이 추가로 필요(각종 설정 추가)
+    - 프로젝트 생성
+        - create-react-app + ts 설정 추가하는 방식
+        - https://create-react-app.dev/docs/adding-typescript
+        ```
+         # my-app은 앱의 이름, 커스텀하게 수정가능함
+         $ npx create-react-app my-app --template typescript
+
+         # 구동
+         $ cd my-app
+         $ npm run
+        ```
+        - ui 라이브러리 설치
+        - https://mui.com/toolpad/core/introduction/installation/
+        ```
+         $ npm i --save @toolpad/core @mui/material @mui/icons-material @emotion/react @emotion/styled
+        ```
+
+# AWS
+    - 3-tier
+        - Web Server : 리눅스1
+            - Nginx, Apache, .... + 인증서 => https 사용
+            - Web Server <-> proxy <-> Was Server
+        - Was Server : 리눅스2
+            - tomcat, 엔터프라이즈급 was
+                - SpringBoot => war/jar 배포
+            - Was server <-> Jpa <-> DB Server
+        - DB Server : 리눅스3
+            - Oracle, mySql, maria, postgre, ...
         
 
