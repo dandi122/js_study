@@ -9,12 +9,18 @@ import PropsComponent from './components/PropsComponent'
 import JSXComponent from './components/JSXComponent'
 import ContextComponent from './components/ContextComponent'
 import UseStateComponent from './components/UseStateComponent'
+import UseRefComponent from './components/UseRefComponent'
+import UseEffectComponent from './components/UseEffectComponent'
+import UseReducerComponent from './components/UseReducerComponent'
 
 
 const Main = ()=>{
     return (
         <div>
             {/* 훅 */}
+            <UseReducerComponent initValue={0}/>
+            <UseEffectComponent /> {/** 함수형 컴포넌트의 훅 중 useEffect*/}
+            <UseRefComponent />    {/** 함수형 컴포넌트의 훅 중 useRef*/}
             <UseStateComponent value={0}/> {/** 함수형 컴포넌트의 훅:상태변수, 타입 */}
 
             {/* 기본형 */}
