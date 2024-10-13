@@ -1,0 +1,55 @@
+# next.js
+	- react/next/hello-next
+		- 랜더링방식 SSR, CSR, ISR, SSG
+		- 페이지이동(라우트), 태그이동, client 컴포넌트이동, 서버 컴포넌트이동, 프로그램이동
+
+	- https://github.com/vercel/next.js/tree/canary/examples
+
+#ts + react
+	- react/ts/my-app
+		- 로그인 <-> 스프링부트 <-> DB (X)
+			- 세션
+			- 스프링시큐리티-세션/JWT
+		- 시나리오
+			- 로그인전 => 세션체크(세션스토리지사용) => 로그인화면
+			- 로그인후 => 대시보드
+			- 자동분기 => react-route-dom 라이브러리 사용, 라우팅 처리
+
+
+
+# deploy:프로젝트 유형
+	- type0
+		- springboot + JS
+		- SSR, CSR
+
+	- type1
+		- react only <-> springboot(restapi 역활, 미들웨어역활)
+		- CSR O
+		- SSR, SSG, ISR X
+
+	- type2
+		- react + ts|js => build =>  springboot에 삽입( 타임리프(통산대문), restapi 동시 사용)	
+		- CSR
+		-  springboot가 SSR 처리
+
+	- type3
+		- 서비스 2개가 가동	
+		- react + ts|js + next.js(서버) <-> springboot(restapi 역활, 미들웨어역활)
+		- CSR
+		- next.js가 SSR, SSG, ISR 처리
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

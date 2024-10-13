@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
-// import Dashboard from './layout/Dashboard';
-import Main from './pages/Main'
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -11,14 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* <Dashboard /> */}
-    {/* Main 컴포넌트는 개별 페이지를 구성한 최상위 라우팅 적용 jsx
-        - 로그인
-        - 대시보드
-          - 장바구니
-          - 게시판
-          - ... */}
-    <Main/>
+    <App />
   </React.StrictMode>
 );
 

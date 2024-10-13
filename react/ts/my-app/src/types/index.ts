@@ -19,3 +19,7 @@ export interface IPage {
     // 개별 페이지 
     pathname: string
   }
+
+  export type ISession = {
+    uid:string;
+  }
